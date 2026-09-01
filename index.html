@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verdant &amp; Bloom — Hair Studio &amp; Spa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#1b1815;
+    --charcoal-soft:#26221e;
+    --ivory:#f3ecdf;
+    --moss:#4a5a3f;
+    --moss-deep:#37432f;
+    --brass:#b98d4f;
+    --brass-soft:#d6b57c;
+    --blush:#d9c2ac;
+    --line: rgba(243,236,223,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--charcoal);
+    color:var(--ivory);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 40px;}
+
+  /* NAV */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:linear-gradient(to bottom, rgba(27,24,21,0.92), rgba(27,24,21,0));
+    padding:26px 0;
+    transition:padding .3s ease, background .3s ease;
+  }
+  header.scrolled{
+    padding:16px 0;
+    background:rgba(27,24,21,0.96);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex; justify-content:space-between; align-items:center;}
+  .brand{font-family:'Cormorant Garamond', serif; font-size:1.5rem; letter-spacing:0.04em;}
+  .brand em{font-style:italic; color:var(--brass-soft);}
+  .navlinks{display:flex; gap:36px; font-size:0.92rem;}
+  .navlinks a{position:relative; padding-bottom:4px;}
+  .navlinks a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
+    background:var(--brass-soft); transition:width .3s ease;
+  }
+  .navlinks a:hover::after{width:100%;}
+  .nav-cta{
+    border:1px solid var(--brass-soft); padding:10px 22px; font-size:0.85rem;
+    letter-spacing:0.03em; transition:background .25s ease, color .25s ease;
+  }
+  .nav-cta:hover{background:var(--brass-soft); color:var(--charcoal);}
+  .menu-btn{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none;}
+  .menu-btn span{width:24px; height:1px; background:var(--ivory);}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    display:flex; align-items:center;
+    position:relative;
+    padding-top:120px;
+    background:
+      radial-gradient(ellipse at 78% 30%, rgba(74,90,63,0.35), transparent 55%),
+      var(--charcoal);
+  }
+  .hero .wrap{display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;}
+  .hero-eyebrow{color:var(--brass-soft); font-size:0.85rem; letter-spacing:0.08em; margin-bottom:22px;}
+  .hero h1{
+    font-size:clamp(2.8rem, 5.2vw, 4.6rem);
+    line-height:1.05;
+    max-width:11ch;
+  }
+  .hero h1 .accent{font-style:italic; color:var(--brass-soft);}
+  .hero p{
+    max-width:42ch; margin-top:26px; font-size:1.05rem; color:rgba(243,236,223,0.78);
+  }
+  .hero-actions{display:flex; gap:18px; margin-top:38px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--brass); color:var(--charcoal); padding:15px 32px;
+    font-size:0.92rem; letter-spacing:0.03em; border:1px solid var(--brass);
+    transition:background .25s ease, color .25s ease;
+  }
+  .btn-primary:hover{background:transparent; color:var(--brass-soft);}
+  .btn-ghost{
+    padding:15px 28px; border:1px solid var(--line); font-size:0.92rem;
+    display:flex; align-items:center; gap:10px; transition:border-color .25s ease;
+  }
+  .btn-ghost:hover{border-color:var(--brass-soft);}
+  .hero-figure{
+    position:relative; border:1px solid var(--line);
+    aspect-ratio:3/4; background:
+      linear-gradient(155deg, var(--moss) 0%, var(--charcoal-soft) 70%);
+    display:flex; align-items:flex-end; padding:28px;
+    overflow:hidden;
+  }
+  .hero-figure::before{
+    content:''; position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(115deg, rgba(243,236,223,0.05) 0 2px, transparent 2px 40px);
+  }
+  .hero-figure-caption{position:relative; font-size:0.85rem; color:var(--ivory);}
+  .hero-figure-caption .serif{font-size:1.3rem; display:block; margin-bottom:4px;}
+  .hero-stats{
+    display:flex; gap:40px; margin-top:56px; padding-top:32px; border-top:1px solid var(--line);
+  }
+  .hero-stats div span{display:block; font-family:'Cormorant Garamond', serif; font-size:2rem; color:var(--brass-soft);}
+  .hero-stats div small{font-size:0.78rem; color:rgba(243,236,223,0.6); letter-spacing:0.02em;}
+
+  section{padding:120px 0;}
+  .section-head{max-width:600px; margin-bottom:64px;}
+  .section-head .kicker{color:var(--brass-soft); font-size:0.85rem; letter-spacing:0.06em; margin-bottom:14px;}
+  .section-head h2{font-size:clamp(2rem, 3.4vw, 2.9rem);}
+  .section-head p{margin-top:18px; color:rgba(243,236,223,0.72); max-width:52ch;}
+
+  /* SERVICES */
+  .services{background:var(--charcoal-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .service-list{display:flex; flex-direction:column;}
+  .service-row{
+    display:grid; grid-template-columns:0.6fr 2fr 1fr 0.6fr;
+    gap:24px; align-items:center;
+    padding:28px 0; border-top:1px solid var(--line);
+    transition:padding-left .3s ease;
+  }
+  .service-row:last-child{border-bottom:1px solid var(--line);}
+  .service-row:hover{padding-left:14px; background:rgba(185,141,79,0.05);}
+  .service-num{color:var(--brass-soft); font-family:'Cormorant Garamond', serif; font-size:1.1rem;}
+  .service-name{font-family:'Cormorant Garamond', serif; font-size:1.5rem;}
+  .service-desc{font-size:0.9rem; color:rgba(243,236,223,0.6);}
+  .service-price{text-align:right; color:var(--brass-soft); font-size:0.95rem;}
+
+  /* PHILOSOPHY / ABOUT */
+  .about .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center;}
+  .about-figure{
+    aspect-ratio:4/5; border:1px solid var(--line);
+    background:linear-gradient(200deg, var(--moss-deep), var(--charcoal) 75%);
+    position:relative;
+  }
+  .about-figure .frame-label{
+    position:absolute; bottom:24px; left:24px; font-size:0.8rem; color:rgba(243,236,223,0.55);
+  }
+  .about blockquote{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.7rem;
+    line-height:1.4; color:var(--ivory); border-left:2px solid var(--brass-soft); padding-left:26px;
+  }
+  .about-signoff{margin-top:26px; font-size:0.9rem; color:rgba(243,236,223,0.6);}
+
+  /* GALLERY STRIP */
+  .strip{display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--line);}
+  .strip div{
+    aspect-ratio:1/1.15; background:var(--charcoal-soft);
+    position:relative; overflow:hidden;
+  }
+  .strip div:nth-child(1){background:linear-gradient(160deg, var(--moss), var(--charcoal-soft));}
+  .strip div:nth-child(2){background:linear-gradient(200deg, var(--brass), var(--charcoal-soft) 65%);}
+  .strip div:nth-child(3){background:linear-gradient(140deg, var(--charcoal-soft), var(--moss-deep));}
+  .strip div:nth-child(4){background:linear-gradient(180deg, var(--blush), var(--charcoal-soft) 70%);}
+
+  /* BOOKING */
+  .booking{background:var(--charcoal-soft); border-top:1px solid var(--line);}
+  .booking .wrap{display:grid; grid-template-columns:0.85fr 1.15fr; gap:70px;}
+  .booking-info h2{font-size:clamp(2rem,3.2vw,2.7rem); margin-bottom:20px;}
+  .booking-info p{color:rgba(243,236,223,0.72); margin-bottom:32px;}
+  .booking-detail{display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--line);}
+  .booking-detail:last-of-type{border-bottom:1px solid var(--line);}
+  .booking-detail strong{display:block; font-size:0.95rem; color:var(--ivory);}
+  .booking-detail span{font-size:0.85rem; color:rgba(243,236,223,0.6);}
+  .whatsapp-inline{
+    margin-top:32px; display:inline-flex; align-items:center; gap:12px;
+    padding:14px 24px; border:1px solid #3f8f5f; color:#7fd39e; font-size:0.9rem;
+    transition:background .25s ease;
+  }
+  .whatsapp-inline:hover{background:rgba(63,143,95,0.12);}
+
+  form{display:grid; gap:20px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  label{font-size:0.8rem; letter-spacing:0.03em; color:rgba(243,236,223,0.65); margin-bottom:8px; display:block;}
+  input, select, textarea{
+    width:100%; background:transparent; border:none; border-bottom:1px solid var(--line);
+    color:var(--ivory); font-family:'Jost', sans-serif; font-size:1rem; padding:10px 2px;
+    transition:border-color .25s ease;
+  }
+  input::placeholder, textarea::placeholder{color:rgba(243,236,223,0.35);}
+  input:focus, select:focus, textarea:focus{outline:none; border-color:var(--brass-soft);}
+  select option{background:var(--charcoal);}
+  textarea{resize:vertical; min-height:70px;}
+  .form-submit{
+    margin-top:10px; background:var(--brass); color:var(--charcoal); border:1px solid var(--brass);
+    padding:16px 32px; font-size:0.92rem; letter-spacing:0.03em; cursor:pointer;
+    transition:background .25s ease, color .25s ease; justify-self:start;
+  }
+  .form-submit:hover{background:transparent; color:var(--brass-soft);}
+  .form-note{font-size:0.78rem; color:rgba(243,236,223,0.45); margin-top:-6px;}
+
+  /* FOOTER */
+  footer{padding:70px 0 40px; border-top:1px solid var(--line);}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px; margin-bottom:50px;}
+  footer h3{font-size:1.15rem; margin-bottom:18px; color:var(--brass-soft);}
+  footer p, footer li{font-size:0.9rem; color:rgba(243,236,223,0.65);}
+  footer ul{list-style:none; display:flex; flex-direction:column; gap:10px;}
+  footer ul a:hover{color:var(--brass-soft);}
+  .footer-bottom{
+    display:flex; justify-content:space-between; padding-top:26px; border-top:1px solid var(--line);
+    font-size:0.8rem; color:rgba(243,236,223,0.4); flex-wrap:wrap; gap:12px;
+  }
+
+  /* WHATSAPP FLOAT */
+  .wa-float{
+    position:fixed; bottom:28px; right:28px; z-index:200;
+    width:58px; height:58px; border-radius:50%;
+    background:#3f8f5f; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,0.35);
+    transition:transform .25s ease;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+  .wa-float svg{width:28px; height:28px;}
+
+  @media (max-width: 880px){
+    .navlinks{display:none;}
+    .menu-btn{display:flex;}
+    .hero .wrap, .about .wrap, .booking .wrap{grid-template-columns:1fr;}
+    .hero-figure{order:-1;}
+    .strip{grid-template-columns:repeat(2,1fr);}
+    .service-row{grid-template-columns:1fr; gap:6px; text-align:left;}
+    .service-price{text-align:left;}
+    .form-row{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr; gap:32px;}
+    .wrap{padding:0 24px;}
+    .hero-stats{flex-wrap:wrap; gap:28px;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <nav>
+      <div class="brand">Verdant <em>&amp; Bloom</em></div>
+      <div class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#about">Philosophy</a>
+        <a href="#gallery">Studio</a>
+        <a href="#booking">Booking</a>
+      </div>
+      <a href="#booking" class="nav-cta">Reserve a Visit</a>
+      <button class="menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="hero-eyebrow">Hair Studio &amp; Spa · Bengaluru</div>
+      <h1>Unhurried care, <span class="accent">quietly</span> exceptional results</h1>
+      <p>Verdant &amp; Bloom is a private studio for colour, cut and skin ritual — built around one chair at a time, and the belief that beauty work should feel like rest, not errand.</p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn-primary">Book Your Appointment</a>
+        <a href="https://wa.me/919876543210?text=Hi%20Verdant%20%26%20Bloom%2C%20I%27d%20like%20to%20enquire%20about%20an%20appointment." target="_blank" rel="noopener" class="btn-ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#7fd39e"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.31-1.93 1.36-.5.05-.98.24-3.28-.7-2.78-1.14-4.56-3.99-4.7-4.17-.14-.19-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.29.24-.27.53-.34.71-.34.18 0 .35.001.51.008.16.007.38-.06.6.46.24.55.8 1.9.87 2.04.07.14.11.3.02.49-.09.19-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.2.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.26.13.44.2.5.31.07.11.07.63-.17 1.3z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div><span>12+</span><small>Years in Practice</small></div>
+        <div><span>1:1</span><small>Private Chair Ratio</small></div>
+        <div><span>4.9</span><small>Average Client Rating</small></div>
+      </div>
+    </div>
+    <div class="hero-figure">
+      <div class="hero-figure-caption">
+        <span class="serif">The Colour Room</span>
+        Botanical dyes, natural light, one client at a time.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">What We Do</div>
+      <h2>Services &amp; treatments</h2>
+      <p>Every service begins with a fifteen-minute consultation, included at no charge, so nothing is guessed at.</p>
+    </div>
+    <div class="service-list">
+      <div class="service-row">
+        <div class="service-num">01</div>
+        <div class="service-name">Signature Cut &amp; Style</div>
+        <div class="service-desc">Precision cutting, tailored to face shape and hair behaviour, finished with a wash and style.</div>
+        <div class="service-price">₹2,200</div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">02</div>
+        <div class="service-name">Botanical Colour</div>
+        <div class="service-desc">Ammonia-free colour and balayage using plant-derived pigments, gentle on scalp and strand.</div>
+        <div class="service-price">from ₹4,800</div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">03</div>
+        <div class="service-name">Scalp Ritual</div>
+        <div class="service-desc">A 50-minute restorative treatment combining warm-oil massage and steam therapy.</div>
+        <div class="service-price">₹3,000</div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">04</div>
+        <div class="service-name">Facial &amp; Skin Renewal</div>
+        <div class="service-desc">Deep-cleansing facial with cold-pressed serums, suited to sensitive and city-tired skin.</div>
+        <div class="service-price">₹3,600</div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">05</div>
+        <div class="service-name">Bridal &amp; Occasion</div>
+        <div class="service-desc">Full styling package including trial session — hair, makeup, and draping consultation.</div>
+        <div class="service-price">on request</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-figure">
+      <div class="frame-label">Est. 2013 — Indiranagar, Bengaluru</div>
+    </div>
+    <div>
+      <div class="section-head" style="margin-bottom:36px;">
+        <div class="kicker">Our Philosophy</div>
+        <h2>Slower, by design</h2>
+      </div>
+      <blockquote>We keep one client per stylist, per hour — no double-booking, no rushing the last twenty minutes of a colour.</blockquote>
+      <div class="about-signoff">— Meera Rao, Founder &amp; Lead Colourist</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" id="gallery"></div>
+
+<section class="booking" id="booking">
+  <div class="wrap">
+    <div class="booking-info">
+      <div class="kicker" style="color:var(--brass-soft); font-size:0.85rem; margin-bottom:14px;">Reserve Your Chair</div>
+      <h2>Book an appointment</h2>
+      <p>Share a few details and we'll confirm your slot within a few hours. Prefer to talk it through first? Message us directly on WhatsApp.</p>
+
+      <div class="booking-detail">
+        <div>
+          <strong>Studio Hours</strong>
+          <span>Tuesday–Sunday, 10:00 AM – 8:00 PM. Closed Mondays.</span>
+        </div>
+      </div>
+      <div class="booking-detail">
+        <div>
+          <strong>Location</strong>
+          <span>12th Main, Indiranagar, Bengaluru</span>
+        </div>
+      </div>
+      <div class="booking-detail">
+        <div>
+          <strong>Phone</strong>
+          <span>+91 98765 43210</span>
+        </div>
+      </div>
+
+      <a href="https://wa.me/919876543210?text=Hi%20Verdant%20%26%20Bloom%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="whatsapp-inline">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#7fd39e"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.31-1.93 1.36-.5.05-.98.24-3.28-.7-2.78-1.14-4.56-3.99-4.7-4.17-.14-.19-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.29.24-.27.53-.34.71-.34.18 0 .35.001.51.008.16.007.38-.06.6.46.24.55.8 1.9.87 2.04.07.14.11.3.02.49-.09.19-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.2.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.26.13.44.2.5.31.07.11.07.63-.17 1.3z"/></svg>
+        Chat with us on WhatsApp
+      </a>
+    </div>
+
+    <form id="bookingForm">
+      <div class="form-row">
+        <div>
+          <label for="name">Full name</label>
+          <input type="text" id="name" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" placeholder="+91 00000 00000" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="service">Service</label>
+          <select id="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option>Signature Cut &amp; Style</option>
+            <option>Botanical Colour</option>
+            <option>Scalp Ritual</option>
+            <option>Facial &amp; Skin Renewal</option>
+            <option>Bridal &amp; Occasion</option>
+          </select>
+        </div>
+        <div>
+          <label for="stylist">Preferred stylist (optional)</label>
+          <input type="text" id="stylist" placeholder="Any preference">
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="date">Preferred date</label>
+          <input type="date" id="date" required>
+        </div>
+        <div>
+          <label for="time">Preferred time</label>
+          <input type="time" id="time" required>
+        </div>
+      </div>
+      <div>
+        <label for="notes">Notes (optional)</label>
+        <textarea id="notes" placeholder="Anything we should know before your visit"></textarea>
+      </div>
+      <p class="form-note">Submitting sends your request straight to our WhatsApp for confirmation.</p>
+      <button type="submit" class="form-submit">Send Booking Request</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:16px;">Verdant <em>&amp; Bloom</em></div>
+        <p>A private hair studio and spa in Indiranagar, Bengaluru, built around unhurried, one-chair-at-a-time care.</p>
+      </div>
+      <div>
+        <h3>Studio</h3>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">Philosophy</a></li>
+          <li><a href="#booking">Booking</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li>+91 98765 43210</li>
+          <li>hello@verdantandbloom.studio</li>
+          <li>12th Main, Indiranagar, Bengaluru</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Verdant &amp; Bloom Studio. All rights reserved.</span>
+      <span>Sample website — placeholder content and contact details.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/919876543210?text=Hi%20Verdant%20%26%20Bloom%2C%20I%27d%20like%20to%20enquire%20about%20an%20appointment." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.31-1.93 1.36-.5.05-.98.24-3.28-.7-2.78-1.14-4.56-3.99-4.7-4.17-.14-.19-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.29.24-.27.53-.34.71-.34.18 0 .35.001.51.008.16.007.38-.06.6.46.24.55.8 1.9.87 2.04.07.14.11.3.02.49-.09.19-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.2.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.26.13.44.2.5.31.07.11.07.63-.17 1.3z"/></svg>
+</a>
+
+<script>
+  // Header scroll state
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Booking form -> WhatsApp handoff
+  const WHATSAPP_NUMBER = "919876543210"; // replace with the studio's real WhatsApp number, country code first, no + or spaces
+
+  document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const service = document.getElementById('service').value;
+    const stylist = document.getElementById('stylist').value.trim();
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const notes = document.getElementById('notes').value.trim();
+
+    let message = `Hi Verdant & Bloom, I'd like to book an appointment.%0A`;
+    message += `Name: ${name}%0A`;
+    message += `Phone: ${phone}%0A`;
+    message += `Service: ${service}%0A`;
+    if(stylist) message += `Preferred stylist: ${stylist}%0A`;
+    message += `Date: ${date}%0A`;
+    message += `Time: ${time}%0A`;
+    if(notes) message += `Notes: ${notes}%0A`;
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message.replace(/%0A/g,'\n'))}`;
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
